@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gsy.dao.userdao">
+<!--    配置查询所有-->
+    <select id="findAll" resultType="gsy.domain.user">
+        select * from user;
+    </select>
+
+    <insert id="addNew" parameterType="gsy.domain.user">
+        insert into user values (#{id},#{name},#{tel});
+    </insert>
+
+    <update id="update" parameterType="gsy.domain.user">
+        update user set name=#{name},tel=#{tel} where id=#{id};
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        delete from user where id=#{id};
+    </delete>
+</mapper>
